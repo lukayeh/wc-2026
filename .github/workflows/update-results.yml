@@ -20,4 +20,5 @@ jobs:
           git config user.email "bot@users.noreply.github.com"
           git add data.json index.html
           git diff --cached --quiet || git commit -m "auto: update match results"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           git push
