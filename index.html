@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WC 2026 Sweepstakes</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a1a0e;color:#e0e0e0;padding:2rem 1rem;min-height:100vh}
+h1{text-align:center;font-size:clamp(1.8rem,5vw,3rem);color:#f5c842;margin-bottom:.25rem;letter-spacing:.05em;text-transform:uppercase}
+.subtitle{text-align:center;color:#7a9a7a;font-size:1rem;margin-bottom:2rem}
+table{width:100%;max-width:700px;margin:0 auto 2rem;border-collapse:collapse;background:#162b1a;border-radius:12px;overflow:hidden;border:1px solid #2a5a2e}
+th{background:#1e3d24;color:#f5c842;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;padding:.6rem .5rem}
+td{text-align:center;padding:.5rem .3rem;font-size:.9rem;border-top:1px solid #1e3d24}
+tr:first-child td{border-top:none}
+tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f5f5}
+.pos{color:#7a9a7a;font-size:.8rem;width:2rem}
+.pts{color:#f5c842;font-weight:700;font-size:1rem}
+.w{color:#4ade80}
+.d{color:#facc15}
+.l{color:#f87171}
+.pld{color:#9ca89c}
+.legend{text-align:center;color:#7a9a7a;font-size:.82rem;margin:-1.5rem 0 2rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
+.legend span{display:inline-flex;align-items:center;gap:.35rem}
+.legend .w{color:#4ade80}
+.legend .d{color:#facc15}
+.legend .l{color:#f87171}
+#survival{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.surv-item{display:flex;align-items:center;gap:.5rem;background:#162b1a;border-radius:999px;padding:.35rem .75rem .35rem .5rem;border:1px solid #2a5a2e;font-size:.8rem}
+.surv-avatar{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
+.surv-bar{display:flex;gap:2px;height:10px;align-items:center}
+.surv-dot{width:8px;height:8px;border-radius:2px;background:#2a5a2e}
+.surv-dot.alive{background:#4ade80}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto}
+.card{background:linear-gradient(145deg,#162b1a,#1a331e);border-radius:16px;padding:1.5rem;border:1px solid #2a5a2e;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.card-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid #2a5a2e}
+.avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:#fff;flex-shrink:0}
+.name{font-size:1.35rem;font-weight:700;color:#f5f5f5}
+.count{color:#7a9a7a;font-size:.85rem;margin-left:auto}
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
+.team{font-size:.92rem;padding:.3rem .5rem;border-radius:6px;background:rgba(255,255,255,.04);color:#d0d8d0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:.45rem}
+.flag{width:20px;height:15px;border-radius:2px;object-fit:cover;flex-shrink:0}
+.eliminated{opacity:.35;text-decoration:line-through}
+@media(max-width:640px){.grid{grid-template-columns:1fr;gap:1rem}.teams{grid-template-columns:1fr 1fr}.card{padding:1rem}td{font-size:.8rem;padding:.4rem .2rem}}
+</style>
+</head>
+<body>
+<h1>World Cup 2026</h1>
+<p class="subtitle">Sweepstakes draw</p>
+
+<div class="legend"><span class="w">Win = 3 pts</span><span class="d">Draw = 1 pt</span><span class="l">Loss = 0 pts</span></div>
+
+<div id="survival"></div>
+
+<div id="standings"></div>
+<div class="grid" id="cards"></div>
+
+<script>
+//DATA
+const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand","Qatar","DR Congo","Scotland","Canada","Saudi Arabia","Mexico","Colombia","Norway","France","Spain","Germany"]},{"name":"Jess","eliminated":[],"teams":["Haiti","Cabo Verde","Iraq","Australia","Tunisia","Ecuador","Austria","Switzerland","Türkiye","Brazil","Belgium","Uruguay"]},{"name":"Jos","eliminated":[],"teams":["Algeria","Uzbekistan","Curaçao","Iran","Bosnia & Herzegovina","Czechia","Paraguay","Senegal","USA","England","Argentina","Netherlands"]},{"name":"Luka","eliminated":[],"teams":["Jordan","Panama","South Africa","Egypt","Ghana","Côte d'Ivoire","Sweden","Japan","South Korea","Portugal","Croatia","Morocco"]}],"flagCodes":{"New Zealand":"nz","Qatar":"qa","DR Congo":"cd","Scotland":"gb-sct","Canada":"ca","Saudi Arabia":"sa","Mexico":"mx","Colombia":"co","Norway":"no","France":"fr","Spain":"es","Germany":"de","Haiti":"ht","Cabo Verde":"cv","Iraq":"iq","Australia":"au","Tunisia":"tn","Ecuador":"ec","Austria":"at","Switzerland":"ch","Türkiye":"tr","Brazil":"br","Belgium":"be","Uruguay":"uy","Algeria":"dz","Uzbekistan":"uz","Curaçao":"cw","Iran":"ir","Bosnia & Herzegovina":"ba","Czechia":"cz","Paraguay":"py","Senegal":"sn","USA":"us","England":"gb-eng","Argentina":"ar","Netherlands":"nl","Jordan":"jo","Panama":"pa","South Africa":"za","Egypt":"eg","Ghana":"gh","Côte d'Ivoire":"ci","Sweden":"se","Japan":"jp","South Korea":"kr","Portugal":"pt","Croatia":"hr","Morocco":"ma"},"matches":[{"team1":"Mexico","team2":"South Africa","goals1":2,"goals2":0,"stage":"Group","date":"2026-06-11"},{"team1":"South Korea","team2":"Czechia","goals1":2,"goals2":1,"stage":"Group","date":"2026-06-11"}]}
+//DATAEND
+
+;(function(d){
+  var flagUrl = function(c){ return c ? 'https://flagcdn.com/20x15/' + c + '.png' : '' }
+
+  var playerStats = d.players.map(function(p){
+    var w=0, dr=0, l=0, gf=0, ga=0
+    d.matches.forEach(function(m){
+      var t1 = p.teams.indexOf(m.team1) !== -1
+      var t2 = p.teams.indexOf(m.team2) !== -1
+      if (t1 || t2) {
+        if (t1) { gf += m.goals1; ga += m.goals2 }
+        if (t2) { gf += m.goals2; ga += m.goals1 }
+        if (t1 && m.goals1 > m.goals2) w++
+        else if (t2 && m.goals2 > m.goals1) w++
+        else if (t1 && m.goals1 === m.goals2) dr++
+        else if (t2 && m.goals2 === m.goals1) dr++
+        else if (t1) l++
+        else if (t2) l++
+      }
+    })
+    return { name: p.name, teams: p.teams, w: w, dr: dr, l: l, gf: gf, ga: ga, gd: gf - ga, pts: w * 3 + dr, pld: w + dr + l }
+  })
+
+  playerStats.sort(function(a,b){ return b.pts - a.pts || b.gd - a.gd || b.gf - a.gf })
+
+  var colors = ['#3b82f6','#ef4444','#f59e0b','#8b5cf6']
+  var avatars = ['N','J','J','L']
+  var playerIndex = {}
+  d.players.forEach(function(p,i){ playerIndex[p.name] = i })
+
+  var survEl = document.getElementById('survival')
+  var survHtml = ''
+  for (var i = 0; i < d.players.length; i++) {
+    var p = d.players[i]
+    var alive = p.teams.length - (p.eliminated ? p.eliminated.length : 0)
+    var dots = ''
+    for (var j = 0; j < p.teams.length; j++) {
+      var elim = p.eliminated && p.eliminated.indexOf(p.teams[j]) !== -1
+      dots += '<span class="surv-dot' + (elim ? '' : ' alive') + '"></span>'
+    }
+    survHtml += '<div class="surv-item"><span class="surv-avatar" style="background:' + colors[i] + '">' + avatars[i] + '</span><span style="font-weight:600;color:#f5f5f5">' + p.name + '</span> <span style="color:#7a9a7a">' + alive + '/' + p.teams.length + '</span><span class="surv-bar">' + dots + '</span></div>'
+  }
+  survEl.innerHTML = survHtml
+
+  var standingsEl = document.getElementById('standings')
+  var cardsEl = document.getElementById('cards')
+
+  if (playerStats.length && d.matches.length) {
+    var tableHtml = '<table><thead><tr><th></th><th>Player</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>Alive</th></tr></thead><tbody>'
+    for (var i = 0; i < playerStats.length; i++) {
+      var p = playerStats[i]
+      var idx = playerIndex[p.name]
+      var gd = p.gd > 0 ? '+' + p.gd : p.gd
+      tableHtml += '<tr>'
+      tableHtml += '<td class="pos">' + (i + 1) + '</td>'
+      tableHtml += '<td style="display:flex;align-items:center;gap:.5rem;padding-left:.75rem"><span style="display:inline-flex;width:24px;height:24px;border-radius:50%;background:' + colors[idx] + ';color:#fff;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0">' + avatars[idx] + '</span>' + p.name + '</td>'
+      tableHtml += '<td class="pld">' + p.pld + '</td>'
+      tableHtml += '<td class="w">' + p.w + '</td>'
+      tableHtml += '<td class="d">' + p.dr + '</td>'
+      tableHtml += '<td class="l">' + p.l + '</td>'
+      tableHtml += '<td>' + p.gf + '</td>'
+      tableHtml += '<td>' + p.ga + '</td>'
+      tableHtml += '<td>' + gd + '</td>'
+      tableHtml += '<td class="pts">' + p.pts + '</td>'
+      var alive = p.teams.length - (p.eliminated ? p.eliminated.length : 0)
+      tableHtml += '<td style="color:' + (alive < 6 ? '#f87171' : alive < 10 ? '#facc15' : '#4ade80') + '">' + alive + '/' + p.teams.length + '</td>'
+      tableHtml += '</tr>'
+    }
+    tableHtml += '</tbody></table>'
+    standingsEl.innerHTML = tableHtml
+  } else {
+    standingsEl.innerHTML = '<p style="text-align:center;color:#6a8a6a;margin-bottom:2rem">No matches yet.</p>'
+  }
+
+  var cardsHtml = ''
+  for (var i = 0; i < d.players.length; i++) {
+    var p = d.players[i]
+    var stats = null
+    for (var j = 0; j < playerStats.length; j++) {
+      if (playerStats[j].name === p.name) { stats = playerStats[j]; break }
+    }
+    var teamsHtml = ''
+    for (var j = 0; j < p.teams.length; j++) {
+      var t = p.teams[j]
+      var flagSrc = d.flagCodes[t] ? 'https://flagcdn.com/20x15/' + d.flagCodes[t] + '.png' : ''
+      var elim = p.eliminated && p.eliminated.indexOf(t) !== -1
+      teamsHtml += '<span class="team' + (elim ? ' eliminated' : '') + '"><img class="flag" src="' + flagSrc + '" alt="" loading="lazy">' + t + '</span>'
+    }
+    cardsHtml += '<div class="card">'
+    cardsHtml += '<div class="card-header">'
+    cardsHtml += '<div class="avatar" style="background:' + colors[i] + '">' + avatars[i] + '</div>'
+    cardsHtml += '<span class="name">' + p.name + '</span>'
+    cardsHtml += '<span class="count">' + (d.matches.length ? stats.pts + ' pts' : '12 teams') + '</span>'
+    cardsHtml += '</div>'
+    cardsHtml += '<div class="teams">' + teamsHtml + '</div>'
+    cardsHtml += '</div>'
+  }
+  cardsEl.innerHTML = cardsHtml
+})(DATA)
+</script>
+</body>
+</html>
