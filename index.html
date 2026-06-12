@@ -20,11 +20,9 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 .d{color:#facc15}
 .l{color:#f87171}
 .pld{color:#9ca89c}
-.legend{text-align:center;color:#7a9a7a;font-size:.82rem;margin:-1.5rem 0 2rem;display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap}
-.legend span{display:inline-flex;align-items:center;gap:.35rem}
-.legend .w{color:#4ade80}
-.legend .d{color:#facc15}
-.legend .l{color:#f87171}
+.section-header{display:flex;align-items:center;gap:1rem;text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:.18em;color:#4a7a4a;margin-bottom:.75rem;margin-top:2rem}
+.section-header:first-child{margin-top:0}
+.section-header::before,.section-header::after{content:'';flex:1;height:1px;background:#1e3d24}
 #survival{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
 .surv-item{display:flex;align-items:center;gap:.5rem;background:#162b1a;border-radius:999px;padding:.35rem .75rem .35rem .5rem;border:1px solid #2a5a2e;font-size:.8rem}
 .surv-avatar{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
@@ -76,10 +74,13 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 <div id="trophies" style="display:none"></div>
 <!-- Remove display:none above at the end of the cup to show trophies -->
 
-
+<h2 class="section-header">Teams Remaining</h2>
 <div id="survival"></div>
 
+<h2 class="section-header">Points Table</h2>
 <div id="standings"></div>
+
+<h2 class="section-header">Team Breakdown</h2>
 <div class="grid" id="cards"></div>
 
 <script>
