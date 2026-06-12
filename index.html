@@ -41,7 +41,8 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 .team{font-size:.92rem;padding:.3rem .5rem;border-radius:6px;background:rgba(255,255,255,.04);color:#d0d8d0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:.45rem}
 .flag{width:20px;height:15px;border-radius:2px;object-fit:cover;flex-shrink:0}
 .eliminated{opacity:.35;text-decoration:line-through}
-@media(max-width:640px){.grid{grid-template-columns:1fr;gap:1rem}.teams{grid-template-columns:1fr 1fr}.card{padding:1rem}td{font-size:.8rem;padding:.4rem .2rem}}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 auto 2rem;max-width:700px}
+@media(max-width:640px){body{padding:1rem .75rem}.grid{grid-template-columns:1fr;gap:1rem}.teams{grid-template-columns:1fr 1fr}.card{padding:.85rem}.team{font-size:.82rem;gap:.35rem}.table-wrap{margin-bottom:1.5rem}td{font-size:.75rem;padding:.35rem .2rem}th{font-size:.7rem;padding:.4rem .25rem}.flag{width:16px;height:12px}.surv-item{font-size:.7rem;padding:.25rem .5rem;gap:.35rem}}
 </style>
 </head>
 <body>
@@ -128,7 +129,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
       tableHtml += '</tr>'
     }
     tableHtml += '</tbody></table>'
-    standingsEl.innerHTML = tableHtml
+    standingsEl.innerHTML = '<div class="table-wrap">' + tableHtml + '</div>'
   } else {
     standingsEl.innerHTML = '<p style="text-align:center;color:#6a8a6a;margin-bottom:2rem">No matches yet.</p>'
   }
