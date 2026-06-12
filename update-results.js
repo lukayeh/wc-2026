@@ -32,6 +32,19 @@ function getPlayerByTeam(data, team) {
   return data.players.find(p => p.teams.includes(team))
 }
 
+function syncEliminatedOrder(data) {
+  if (!data.eliminatedOrder) data.eliminatedOrder = []
+  for (const p of data.players) {
+    const allOut = p.eliminated.length >= p.teams.length
+    const inOrder = data.eliminatedOrder.includes(p.name)
+    if (allOut && !inOrder) {
+      data.eliminatedOrder.push(p.name)
+    } else if (!allOut && inOrder) {
+      data.eliminatedOrder = data.eliminatedOrder.filter(n => n !== p.name)
+    }
+  }
+}
+
 function embedInHtml(data) {
   const json = JSON.stringify(data)
   let html = fs.readFileSync(HTML_FILE, 'utf-8')
@@ -65,6 +78,7 @@ async function main() {
     if (!player.eliminated.includes(team)) {
       player.eliminated.push(team)
       console.log(`Eliminated: ${team} (${player.name})`)
+      syncEliminatedOrder(data)
     } else {
       console.log(`${team} already eliminated`)
     }
@@ -78,6 +92,7 @@ async function main() {
     if (!player) { console.error(`Team "${team}" not found`); process.exit(1) }
     player.eliminated = player.eliminated.filter(t => t !== team)
     console.log(`Un-eliminated: ${team} (${player.name})`)
+    syncEliminatedOrder(data)
     fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2) + '\n')
     embedInHtml(data)
     return
@@ -144,6 +159,7 @@ async function main() {
   }
 
   data.matches.sort((a, b) => (a.date || '').localeCompare(b.date || ''))
+  syncEliminatedOrder(data)
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2) + '\n')
 

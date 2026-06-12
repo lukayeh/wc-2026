@@ -42,14 +42,40 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 .flag{width:20px;height:15px;border-radius:2px;object-fit:cover;flex-shrink:0}
 .eliminated{opacity:.35;text-decoration:line-through}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 auto 2rem;max-width:700px}
+.trophies{display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+.trophy{display:flex;align-items:center;gap:.75rem;border-radius:12px;padding:.6rem 1rem;min-width:200px;border:1px solid}
+.trophy-main{background:linear-gradient(135deg,#2a2a0a,#1a1a08);border-color:#f5c842;box-shadow:0 0 16px rgba(245,200,66,.15)}
+.trophy-pts{background:linear-gradient(135deg,#0a1a2a,#081a1a);border-color:#4a9eff;box-shadow:0 0 16px rgba(74,158,255,.1)}
+.trophy-icon{font-size:1.6rem;flex-shrink:0}
+.trophy-body{display:flex;flex-direction:column}
+.trophy-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:#7a9a7a}
+.trophy-name{font-size:1rem;font-weight:700;color:#f5f5f5}
+.trophy-stat{font-size:.8rem;color:#9ca89c}
+.trophy-close{margin-left:auto;cursor:pointer;font-size:1.1rem;color:#4a5a4a;background:none;border:none;padding:0;line-height:1;flex-shrink:0;align-self:flex-start}
+.trophy-close:hover{color:#f5f5f5}
+.trophy-sep{align-self:center;width:1px;height:48px;background:#2a5a2e;flex-shrink:0;display:none}
+.trophy-sep.show{display:block}
+.info-btn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:1px solid #2a5a2e;cursor:pointer;color:#7a9a7a;font-size:.9rem;background:transparent;vertical-align:middle;margin-left:.5rem;transition:border-color .2s,color .2s}
+.info-btn:hover{color:#f5c842;border-color:#f5c842}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:100;padding:1rem}
+.modal{background:#1a331e;border:1px solid #2a5a2e;border-radius:16px;padding:2rem;max-width:440px;width:100%;position:relative}
+.modal-close{position:absolute;top:.75rem;right:.75rem;cursor:pointer;font-size:1.2rem;color:#7a9a7a;background:none;border:none;padding:0;line-height:1}
+.modal-close:hover{color:#f5f5f5}
+.modal h2{color:#f5c842;font-size:1.1rem;margin-bottom:.75rem;letter-spacing:.02em}
+.modal p{color:#c0d0c0;font-size:.9rem;line-height:1.6;margin-bottom:.75rem}
+.modal .hl-gold{color:#f5c842;font-weight:600}
+.modal .hl-blue{color:#4a9eff;font-weight:600}
+@media(max-width:640px){.trophies{gap:.5rem}.trophy{min-width:0;width:100%;padding:.5rem .75rem}.trophy-sep.show{display:none}}
 @media(max-width:640px){body{padding:1rem .75rem}.grid{grid-template-columns:1fr;gap:1rem}.teams{grid-template-columns:1fr 1fr}.card{padding:.85rem}.team{font-size:.82rem;gap:.35rem}.table-wrap{margin-bottom:1.5rem}td{font-size:.75rem;padding:.35rem .2rem}th{font-size:.7rem;padding:.4rem .25rem}.flag{width:16px;height:12px}.surv-item{font-size:.7rem;padding:.25rem .5rem;gap:.35rem}}
 </style>
 </head>
 <body>
 <h1>World Cup 2026</h1>
-<p class="subtitle">Sweepstakes draw</p>
+<p class="subtitle">Sweepstakes draw <span class="info-btn" onclick="toggleInfo()" title="Rules">ⓘ</span></p>
 
-<div class="legend"><span class="w">Win = 3 pts</span><span class="d">Draw = 1 pt</span><span class="l">Loss = 0 pts</span></div>
+<div id="trophies" style="display:none"></div>
+<!-- Remove display:none above at the end of the cup to show trophies -->
+
 
 <div id="survival"></div>
 
@@ -58,7 +84,7 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 
 <script>
 //DATA
-const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand","Qatar","DR Congo","Scotland","Canada","Saudi Arabia","Mexico","Colombia","Norway","France","Spain","Germany"]},{"name":"Jess","eliminated":[],"teams":["Haiti","Cabo Verde","Iraq","Australia","Tunisia","Ecuador","Austria","Switzerland","Türkiye","Brazil","Belgium","Uruguay"]},{"name":"Jos","eliminated":[],"teams":["Algeria","Uzbekistan","Curaçao","Iran","Bosnia & Herzegovina","Czechia","Paraguay","Senegal","USA","England","Argentina","Netherlands"]},{"name":"Luka","eliminated":[],"teams":["Jordan","Panama","South Africa","Egypt","Ghana","Côte d'Ivoire","Sweden","Japan","South Korea","Portugal","Croatia","Morocco"]}],"flagCodes":{"New Zealand":"nz","Qatar":"qa","DR Congo":"cd","Scotland":"gb-sct","Canada":"ca","Saudi Arabia":"sa","Mexico":"mx","Colombia":"co","Norway":"no","France":"fr","Spain":"es","Germany":"de","Haiti":"ht","Cabo Verde":"cv","Iraq":"iq","Australia":"au","Tunisia":"tn","Ecuador":"ec","Austria":"at","Switzerland":"ch","Türkiye":"tr","Brazil":"br","Belgium":"be","Uruguay":"uy","Algeria":"dz","Uzbekistan":"uz","Curaçao":"cw","Iran":"ir","Bosnia & Herzegovina":"ba","Czechia":"cz","Paraguay":"py","Senegal":"sn","USA":"us","England":"gb-eng","Argentina":"ar","Netherlands":"nl","Jordan":"jo","Panama":"pa","South Africa":"za","Egypt":"eg","Ghana":"gh","Côte d'Ivoire":"ci","Sweden":"se","Japan":"jp","South Korea":"kr","Portugal":"pt","Croatia":"hr","Morocco":"ma"},"matches":[{"team1":"Mexico","team2":"South Africa","goals1":2,"goals2":0,"stage":"Group","date":"2026-06-11"},{"team1":"South Korea","team2":"Czechia","goals1":2,"goals2":1,"stage":"Group","date":"2026-06-11"}]}
+const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand","Qatar","DR Congo","Scotland","Canada","Saudi Arabia","Mexico","Colombia","Norway","France","Spain","Germany"]},{"name":"Jess","eliminated":[],"teams":["Haiti","Cabo Verde","Iraq","Australia","Tunisia","Ecuador","Austria","Switzerland","Türkiye","Brazil","Belgium","Uruguay"]},{"name":"Jos","eliminated":[],"teams":["Algeria","Uzbekistan","Curaçao","Iran","Bosnia & Herzegovina","Czechia","Paraguay","Senegal","USA","England","Argentina","Netherlands"]},{"name":"Luka","eliminated":[],"teams":["Jordan","Panama","South Africa","Egypt","Ghana","Côte d'Ivoire","Sweden","Japan","South Korea","Portugal","Croatia","Morocco"]}],"flagCodes":{"New Zealand":"nz","Qatar":"qa","DR Congo":"cd","Scotland":"gb-sct","Canada":"ca","Saudi Arabia":"sa","Mexico":"mx","Colombia":"co","Norway":"no","France":"fr","Spain":"es","Germany":"de","Haiti":"ht","Cabo Verde":"cv","Iraq":"iq","Australia":"au","Tunisia":"tn","Ecuador":"ec","Austria":"at","Switzerland":"ch","Türkiye":"tr","Brazil":"br","Belgium":"be","Uruguay":"uy","Algeria":"dz","Uzbekistan":"uz","Curaçao":"cw","Iran":"ir","Bosnia & Herzegovina":"ba","Czechia":"cz","Paraguay":"py","Senegal":"sn","USA":"us","England":"gb-eng","Argentina":"ar","Netherlands":"nl","Jordan":"jo","Panama":"pa","South Africa":"za","Egypt":"eg","Ghana":"gh","Côte d'Ivoire":"ci","Sweden":"se","Japan":"jp","South Korea":"kr","Portugal":"pt","Croatia":"hr","Morocco":"ma"},"eliminatedOrder":[],"matches":[{"team1":"Mexico","team2":"South Africa","goals1":2,"goals2":0,"stage":"Group","date":"2026-06-11"},{"team1":"South Korea","team2":"Czechia","goals1":2,"goals2":1,"stage":"Group","date":"2026-06-11"}]}
 //DATAEND
 
 ;(function(d){
@@ -103,6 +129,47 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
     survHtml += '<div class="surv-item"><span class="surv-avatar" style="background:' + colors[i] + '">' + avatars[i] + '</span><span style="font-weight:600;color:#f5f5f5">' + p.name + '</span> <span style="color:#7a9a7a">' + alive + '/' + p.teams.length + '</span><span class="surv-bar">' + dots + '</span></div>'
   }
   survEl.innerHTML = survHtml
+
+  // trophies
+  var trophiesEl = document.getElementById('trophies')
+
+  // Winner on Elimination (last player standing / last fully eliminated)
+  var stillAlive = []
+  for (var i = 0; i < d.players.length; i++) {
+    var p = d.players[i]
+    var alive = p.teams.length - (p.eliminated ? p.eliminated.length : 0)
+    if (alive > 0) stillAlive.push(p)
+  }
+
+  var ptsHtml = ''
+  var wcHtml = ''
+
+  if (d.matches.length) {
+    // Most Points (standings leader)
+    var ptsLeader = playerStats[0]
+    ptsHtml = '<div class="trophy trophy-pts"><span class="trophy-icon">\u{1F451}</span><div class="trophy-body"><span class="trophy-label">Most Points</span><span class="trophy-name">' + ptsLeader.name + '</span><span class="trophy-stat">' + ptsLeader.pts + ' pts &middot; ' + ptsLeader.w + 'W ' + ptsLeader.dr + 'D ' + ptsLeader.l + 'L</span></div><button class="trophy-close" onclick="this.parentElement.style.display=\'none\'">\u2715</button></div>'
+
+    // World Cup Champion
+    var wcName, wcStat
+    if (stillAlive.length === 1) {
+      wcName = stillAlive[0].name
+      var a = stillAlive[0].teams.length - stillAlive[0].eliminated.length
+      wcStat = a + '/' + stillAlive[0].teams.length + ' alive'
+    } else if (stillAlive.length === 0 && d.eliminatedOrder && d.eliminatedOrder.length) {
+      var lastName = d.eliminatedOrder[d.eliminatedOrder.length - 1]
+      wcName = lastName
+      wcStat = 'Eliminated last'
+    } else if (stillAlive.length === d.players.length) {
+      wcName = 'In progress'
+      wcStat = 'All players still alive'
+    } else {
+      wcName = 'In progress'
+      wcStat = stillAlive.length + ' players remain'
+    }
+    wcHtml = '<div class="trophy trophy-main"><span class="trophy-icon">\u{1F3C6}</span><div class="trophy-body"><span class="trophy-label">World Cup Champion</span><span class="trophy-name">' + wcName + '</span><span class="trophy-stat">' + wcStat + '</span></div><button class="trophy-close" onclick="this.parentElement.style.display=\'none\'">\u2715</button></div>'
+  }
+
+  trophiesEl.innerHTML = wcHtml + (d.matches.length ? '<div class="trophy-sep show"></div>' : '') + ptsHtml
 
   var standingsEl = document.getElementById('standings')
   var cardsEl = document.getElementById('cards')
@@ -159,6 +226,17 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
   }
   cardsEl.innerHTML = cardsHtml
 })(DATA)
+
+function toggleInfo(){
+  var el=document.getElementById('infoModal')
+  if(el){el.remove();return}
+  var m=document.createElement('div')
+  m.className='modal-overlay'
+  m.id='infoModal'
+  m.onclick=function(e){if(e.target===this)this.remove()}
+  m.innerHTML='<div class="modal"><button class="modal-close" onclick="this.closest(\'.modal-overlay\').remove()">\u2715</button><h2>How It Works</h2><p><span class="hl-gold">World Cup Champion</span> \u2014 The player whose last team gets eliminated last wins the prize. Last team standing.</p><p><span class="hl-blue">Most Points</span> \u2014 Bragging rights go to whoever accumulates the most points across all their teams.</p><h2>Points</h2><p><span class="w">Win</span> = 3 pts &middot; <span class="d">Draw</span> = 1 pt &middot; <span class="l">Loss</span> = 0 pts</p><p>All 104 tournament matches count (group stage + knockout).</p></div>'
+  document.body.appendChild(m)
+}
 </script>
 </body>
 </html>
