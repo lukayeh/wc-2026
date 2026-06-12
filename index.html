@@ -6,35 +6,35 @@
 <title>WC 2026 Sweepstakes</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0a1a0e;color:#e0e0e0;padding:2rem 1rem;min-height:100vh}
-h1{text-align:center;font-size:clamp(1.8rem,5vw,3rem);color:#f5c842;margin-bottom:.25rem;letter-spacing:.05em;text-transform:uppercase}
-.subtitle{text-align:center;color:#7a9a7a;font-size:1rem;margin-bottom:2rem}
-table{width:100%;max-width:700px;margin:0 auto 2rem;border-collapse:collapse;background:#162b1a;border-radius:12px;overflow:hidden;border:1px solid #2a5a2e}
-th{background:#1e3d24;color:#f5c842;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;padding:.6rem .5rem}
-td{text-align:center;padding:.5rem .3rem;font-size:.9rem;border-top:1px solid #1e3d24}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0c1428;color:#e0e0e0;padding:2rem 1rem;min-height:100vh}
+h1{text-align:center;font-size:clamp(1.8rem,5vw,3rem);color:#ef4444;margin-bottom:.25rem;letter-spacing:.05em;text-transform:uppercase}
+.subtitle{text-align:center;color:#8a9aba;font-size:1rem;margin-bottom:2rem}
+table{width:100%;max-width:700px;margin:0 auto 2rem;border-collapse:collapse;background:#141e38;border-radius:12px;overflow:hidden;border:1px solid #2a4070}
+th{background:#1c2848;color:#ef4444;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;padding:.6rem .5rem}
+td{text-align:center;padding:.5rem .3rem;font-size:.9rem;border-top:1px solid #1c2848}
 tr:first-child td{border-top:none}
 tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f5f5}
-.pos{color:#7a9a7a;font-size:.8rem;width:2rem}
-.pts{color:#f5c842;font-weight:700;font-size:1rem}
+.pos{color:#6a8aaa;font-size:.8rem;width:2rem}
+.pts{color:#ef4444;font-weight:700;font-size:1rem}
 .w{color:#4ade80}
 .d{color:#facc15}
 .l{color:#f87171}
-.pld{color:#9ca89c}
-.section-header{display:flex;align-items:center;gap:1rem;text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:.18em;color:#4a7a4a;margin-bottom:.75rem;margin-top:2rem}
+.pld{color:#7a9aaa}
+.section-header{display:flex;align-items:center;gap:1rem;text-align:center;font-size:.75rem;text-transform:uppercase;letter-spacing:.18em;color:#3b82f6;margin-bottom:.75rem;margin-top:2rem}
 .section-header:first-child{margin-top:0}
-.section-header::before,.section-header::after{content:'';flex:1;height:1px;background:#1e3d24}
+.section-header::before,.section-header::after{content:'';flex:1;height:1px;background:#2a4070}
 #survival{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
-.surv-item{display:flex;align-items:center;gap:.5rem;background:#162b1a;border-radius:999px;padding:.35rem .75rem .35rem .5rem;border:1px solid #2a5a2e;font-size:.8rem}
+.surv-item{display:flex;align-items:center;gap:.5rem;background:#141e38;border-radius:999px;padding:.35rem .75rem .35rem .5rem;border:1px solid #2a4070;font-size:.8rem}
 .surv-avatar{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#fff;flex-shrink:0}
 .surv-bar{display:flex;gap:2px;height:10px;align-items:center}
-.surv-dot{width:8px;height:8px;border-radius:2px;background:#2a5a2e}
-.surv-dot.alive{background:#4ade80}
+.surv-dot{width:8px;height:8px;border-radius:2px;background:#2a4070}
+.surv-dot.alive{background:#3b82f6}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1200px;margin:0 auto}
-.card{background:linear-gradient(145deg,#162b1a,#1a331e);border-radius:16px;padding:1.5rem;border:1px solid #2a5a2e;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.card-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid #2a5a2e}
+.card{background:linear-gradient(145deg,#141e38,#182244);border-radius:16px;padding:1.5rem;border:1px solid #2a4070;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.card-header{display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:2px solid #2a4070}
 .avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.1rem;color:#fff;flex-shrink:0}
 .name{font-size:1.35rem;font-weight:700;color:#f5f5f5}
-.count{color:#7a9a7a;font-size:.85rem;margin-left:auto}
+.count{color:#6a8aaa;font-size:.85rem;margin-left:auto}
 .teams{display:grid;grid-template-columns:1fr 1fr;gap:.35rem}
 .team{font-size:.92rem;padding:.3rem .5rem;border-radius:6px;background:rgba(255,255,255,.04);color:#d0d8d0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:.45rem}
 .flag{width:20px;height:15px;border-radius:2px;object-fit:cover;flex-shrink:0}
@@ -42,27 +42,27 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 auto 2rem;max-width:700px}
 .trophies{display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
 .trophy{display:flex;align-items:center;gap:.75rem;border-radius:12px;padding:.6rem 1rem;min-width:200px;border:1px solid}
-.trophy-main{background:linear-gradient(135deg,#2a2a0a,#1a1a08);border-color:#f5c842;box-shadow:0 0 16px rgba(245,200,66,.15)}
-.trophy-pts{background:linear-gradient(135deg,#0a1a2a,#081a1a);border-color:#4a9eff;box-shadow:0 0 16px rgba(74,158,255,.1)}
+.trophy-main{background:linear-gradient(135deg,#3a1010,#1a0808);border-color:#ef4444;box-shadow:0 0 16px rgba(239,68,68,.15)}
+.trophy-pts{background:linear-gradient(135deg,#0a0a2a,#08081a);border-color:#3b82f6;box-shadow:0 0 16px rgba(59,130,246,.1)}
 .trophy-icon{font-size:1.6rem;flex-shrink:0}
 .trophy-body{display:flex;flex-direction:column}
-.trophy-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:#7a9a7a}
+.trophy-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.05em;color:#6a8aaa}
 .trophy-name{font-size:1rem;font-weight:700;color:#f5f5f5}
-.trophy-stat{font-size:.8rem;color:#9ca89c}
-.trophy-close{margin-left:auto;cursor:pointer;font-size:1.1rem;color:#4a5a4a;background:none;border:none;padding:0;line-height:1;flex-shrink:0;align-self:flex-start}
+.trophy-stat{font-size:.8rem;color:#7a9aaa}
+.trophy-close{margin-left:auto;cursor:pointer;font-size:1.1rem;color:#4a5a7a;background:none;border:none;padding:0;line-height:1;flex-shrink:0;align-self:flex-start}
 .trophy-close:hover{color:#f5f5f5}
-.trophy-sep{align-self:center;width:1px;height:48px;background:#2a5a2e;flex-shrink:0;display:none}
+.trophy-sep{align-self:center;width:1px;height:48px;background:#2a4070;flex-shrink:0;display:none}
 .trophy-sep.show{display:block}
-.info-btn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:1px solid #2a5a2e;cursor:pointer;color:#7a9a7a;font-size:.9rem;background:transparent;vertical-align:middle;margin-left:.5rem;transition:border-color .2s,color .2s}
-.info-btn:hover{color:#f5c842;border-color:#f5c842}
+.info-btn{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;border:1px solid #2a4070;cursor:pointer;color:#6a8aaa;font-size:.9rem;background:transparent;vertical-align:middle;margin-left:.5rem;transition:border-color .2s,color .2s}
+.info-btn:hover{color:#ef4444;border-color:#ef4444}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;z-index:100;padding:1rem}
-.modal{background:#1a331e;border:1px solid #2a5a2e;border-radius:16px;padding:2rem;max-width:440px;width:100%;position:relative}
-.modal-close{position:absolute;top:.75rem;right:.75rem;cursor:pointer;font-size:1.2rem;color:#7a9a7a;background:none;border:none;padding:0;line-height:1}
+.modal{background:#182244;border:1px solid #2a4070;border-radius:16px;padding:2rem;max-width:440px;width:100%;position:relative}
+.modal-close{position:absolute;top:.75rem;right:.75rem;cursor:pointer;font-size:1.2rem;color:#6a8aaa;background:none;border:none;padding:0;line-height:1}
 .modal-close:hover{color:#f5f5f5}
-.modal h2{color:#f5c842;font-size:1.1rem;margin-bottom:.75rem;letter-spacing:.02em}
+.modal h2{color:#ef4444;font-size:1.1rem;margin-bottom:.75rem;letter-spacing:.02em}
 .modal p{color:#c0d0c0;font-size:.9rem;line-height:1.6;margin-bottom:.75rem}
-.modal .hl-gold{color:#f5c842;font-weight:600}
-.modal .hl-blue{color:#4a9eff;font-weight:600}
+.modal .hl-gold{color:#ef4444;font-weight:600}
+.modal .hl-blue{color:#60a5fa;font-weight:600}
 @media(max-width:640px){.trophies{gap:.5rem}.trophy{min-width:0;width:100%;padding:.5rem .75rem}.trophy-sep.show{display:none}}
 @media(max-width:640px){body{padding:1rem .75rem}.grid{grid-template-columns:1fr;gap:1rem}.teams{grid-template-columns:1fr 1fr}.card{padding:.85rem}.team{font-size:.82rem;gap:.35rem}.table-wrap{margin-bottom:1.5rem}td{font-size:.75rem;padding:.35rem .2rem}th{font-size:.7rem;padding:.4rem .25rem}.flag{width:16px;height:12px}.surv-item{font-size:.7rem;padding:.25rem .5rem;gap:.35rem}}
 </style>
@@ -127,7 +127,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
       var elim = p.eliminated && p.eliminated.indexOf(p.teams[j]) !== -1
       dots += '<span class="surv-dot' + (elim ? '' : ' alive') + '"></span>'
     }
-    survHtml += '<div class="surv-item"><span class="surv-avatar" style="background:' + colors[i] + '">' + avatars[i] + '</span><span style="font-weight:600;color:#f5f5f5">' + p.name + '</span> <span style="color:#7a9a7a">' + alive + '/' + p.teams.length + '</span><span class="surv-bar">' + dots + '</span></div>'
+    survHtml += '<div class="surv-item"><span class="surv-avatar" style="background:' + colors[i] + '">' + avatars[i] + '</span><span style="font-weight:600;color:#f5f5f5">' + p.name + '</span> <span style="color:#6a8aaa">' + alive + '/' + p.teams.length + '</span><span class="surv-bar">' + dots + '</span></div>'
   }
   survEl.innerHTML = survHtml
 
@@ -193,13 +193,13 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
       tableHtml += '<td>' + gd + '</td>'
       tableHtml += '<td class="pts">' + p.pts + '</td>'
       var alive = p.teams.length - (p.eliminated ? p.eliminated.length : 0)
-      tableHtml += '<td style="color:' + (alive < 6 ? '#f87171' : alive < 10 ? '#facc15' : '#4ade80') + '">' + alive + '/' + p.teams.length + '</td>'
+      tableHtml += '<td style="color:' + (alive < 6 ? '#f87171' : alive < 10 ? '#facc15' : '#3b82f6') + '">' + alive + '/' + p.teams.length + '</td>'
       tableHtml += '</tr>'
     }
     tableHtml += '</tbody></table>'
     standingsEl.innerHTML = '<div class="table-wrap">' + tableHtml + '</div>'
   } else {
-    standingsEl.innerHTML = '<p style="text-align:center;color:#6a8a6a;margin-bottom:2rem">No matches yet.</p>'
+    standingsEl.innerHTML = '<p style="text-align:center;color:#5a7aaa;margin-bottom:2rem">No matches yet.</p>'
   }
 
   var cardsHtml = ''
