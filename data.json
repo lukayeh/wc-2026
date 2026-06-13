@@ -134,6 +134,14 @@
       "date": "06/12/2026"
     },
     {
+      "team1": "USA",
+      "team2": "Paraguay",
+      "goals1": 4,
+      "goals2": 1,
+      "stage": "Group",
+      "date": "06/12/2026"
+    },
+    {
       "team1": "Mexico",
       "team2": "South Africa",
       "goals1": 2,
