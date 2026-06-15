@@ -116,6 +116,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
 
 ;(function(d){
   var flagUrl = function(c){ return c ? 'https://flagcdn.com/20x15/' + c + '.png' : '' }
+  var fmt = function(n){ return n % 1 === 0 ? n + '' : n.toFixed(1) }
 
   var playerStats = d.players.map(function(p){
     var w=0, dr=0, l=0, gf=0, ga=0, yc=0, rc=0
@@ -133,7 +134,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
         else if (t2) l++
       }
     })
-    return { name: p.name, teams: p.teams, w: w, dr: dr, l: l, gf: gf, ga: ga, gd: gf - ga, pts: w * 3 + dr, pld: w + dr + l, yc: yc, rc: rc }
+    return { name: p.name, teams: p.teams, w: w, dr: dr, l: l, gf: gf, ga: ga, gd: gf - ga, pts: w * 3 + dr + gf - ga - yc * 0.5 - rc, pld: w + dr + l, yc: yc, rc: rc }
   })
 
   playerStats.sort(function(a,b){ return b.pts - a.pts || b.gd - a.gd || b.gf - a.gf })
@@ -188,7 +189,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
   if (d.matches.length) {
     // Most Points (standings leader)
     var ptsLeader = playerStats[0]
-    ptsHtml = '<div class="trophy trophy-pts"><span class="trophy-icon">\u{1F451}</span><div class="trophy-body"><span class="trophy-label">Most Points</span><span class="trophy-name">' + ptsLeader.name + '</span><span class="trophy-stat">' + ptsLeader.pts + ' pts &middot; ' + ptsLeader.w + 'W ' + ptsLeader.dr + 'D ' + ptsLeader.l + 'L</span></div><button class="trophy-close" onclick="this.parentElement.style.display=\'none\'">\u2715</button></div>'
+    ptsHtml = '<div class="trophy trophy-pts"><span class="trophy-icon">\u{1F451}</span><div class="trophy-body"><span class="trophy-label">Most Points</span><span class="trophy-name">' + ptsLeader.name + '</span><span class="trophy-stat">' + fmt(ptsLeader.pts) + ' pts &middot; ' + ptsLeader.w + 'W ' + ptsLeader.dr + 'D ' + ptsLeader.l + 'L</span></div><button class="trophy-close" onclick="this.parentElement.style.display=\'none\'">\u2715</button></div>'
 
     // World Cup Champion
     var wcName, wcStat
@@ -216,7 +217,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
   var cardsEl = document.getElementById('cards')
 
   if (playerStats.length && d.matches.length) {
-    var tableHtml = '<table><thead><tr><th></th><th>Player</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th><th>YC</th><th>RC</th><th>Alive</th></tr></thead><tbody>'
+    var tableHtml = '<table><thead><tr><th></th><th>Player</th><th>Pld</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>YC</th><th>RC</th><th>Pts</th><th>Alive</th></tr></thead><tbody>'
     for (var i = 0; i < playerStats.length; i++) {
       var p = playerStats[i]
       var idx = playerIndex[p.name]
@@ -231,9 +232,9 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
       tableHtml += '<td>' + p.gf + '</td>'
       tableHtml += '<td>' + p.ga + '</td>'
       tableHtml += '<td>' + gd + '</td>'
-      tableHtml += '<td class="pts">' + p.pts + '</td>'
       tableHtml += '<td class="pld">' + p.yc + '</td>'
       tableHtml += '<td class="pld">' + p.rc + '</td>'
+      tableHtml += '<td class="pts">' + fmt(p.pts) + '</td>'
       var alive = p.teams.length - (p.eliminated ? p.eliminated.length : 0)
       tableHtml += '<td style="color:' + (alive < 6 ? '#f87171' : alive < 10 ? '#facc15' : '#3b82f6') + '">' + alive + '/' + p.teams.length + '</td>'
       tableHtml += '</tr>'
@@ -301,7 +302,7 @@ function toggleInfo(){
   m.className='modal-overlay'
   m.id='infoModal'
   m.onclick=function(e){if(e.target===this)this.remove()}
-  m.innerHTML='<div class="modal"><button class="modal-close" onclick="this.closest(\'.modal-overlay\').remove()">\u2715</button><h2>How It Works</h2><p><span class="hl-gold">World Cup Champion</span> \u2014 The player whose last team gets eliminated last wins the prize. Last team standing.</p><p><span class="hl-blue">Most Points</span> \u2014 Bragging rights go to whoever accumulates the most points across all their teams.</p><h2>Points</h2><p><span class="w">Win</span> = 3 pts &middot; <span class="d">Draw</span> = 1 pt &middot; <span class="l">Loss</span> = 0 pts</p><p>All 104 tournament matches count (group stage + knockout).</p></div>'
+   m.innerHTML='<div class="modal"><button class="modal-close" onclick="this.closest(\'.modal-overlay\').remove()">\u2715</button><h2>How It Works</h2><p><span class="hl-gold">World Cup Champion</span> \u2014 The player whose last team gets eliminated last wins the prize. Last team standing.</p><p><span class="hl-blue">Most Points</span> \u2014 Bragging rights go to whoever accumulates the most points across all their teams.</p><h2>Points</h2><p><span class="w">Win</span> = 3 pts &middot; <span class="d">Draw</span> = 1 pt &middot; <span class="l">Loss</span> = 0 pts</p><p><span class="w">Goal scored</span> = +1 pt &middot; <span class="l">Goal conceded</span> = -1 pt</p><p><span class="card-y" style="display:inline-block;width:7px;height:9px;border-radius:1.5px;margin-right:1px;vertical-align:middle;background:#eab308"></span> Yellow card = -0.5 pt &middot; <span class="card-r" style="display:inline-block;width:7px;height:9px;border-radius:1.5px;margin-right:1px;vertical-align:middle;background:#ef4444"></span> Red card = -1 pt</p><p>All 104 tournament matches count (group stage + knockout).</p></div>'
   document.body.appendChild(m)
 }
 

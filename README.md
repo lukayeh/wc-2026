@@ -40,11 +40,16 @@ node update-results.js --uneliminate "TeamName"
 
 ## Points System
 
-| Result | Points |
-|--------|--------|
-| Win | 3 |
-| Draw | 1 |
-| Loss | 0 |
+| Event | Points |
+|-------|--------|
+| Win | +3 |
+| Draw | +1 |
+| Goal scored | +1 |
+| Goal conceded | -1 |
+| Yellow card | -0.5 |
+| Red card | -1 |
+
+All 104 tournament matches count (group stage + knockout).
 
 ## Editing Data
 
