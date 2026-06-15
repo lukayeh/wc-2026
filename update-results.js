@@ -137,7 +137,7 @@ async function main() {
       goals1: g1,
       goals2: g2,
       stage: m.type === 'group' ? 'Group' : (m.type || 'Knockout'),
-      date: (m.local_date || '').split(' ')[0] || '2026-06',
+      date: (m.local_date || '').split(' ')[0].replace(/^(\d{2})\/(\d{2})\/(\d{4})$/, '$3-$1-$2') || '2026-06-11',
     })
     added++
 
@@ -158,8 +158,41 @@ async function main() {
     }
   }
 
+  // --- collect upcoming schedule ---
+  if (!data.schedule) data.schedule = []
+  for (const m of matches) {
+    if (m.finished === 'TRUE') continue
+    const t1r = (m.home_team_name_en || '').trim()
+    const t2r = (m.away_team_name_en || '').trim()
+    if (!t1r || !t2r) continue
+    const t1 = normalize(t1r)
+    const t2 = normalize(t2r)
+    if (!teamSet.has(t1) && !teamSet.has(t2)) continue
+    const exists = data.schedule.some(x => x.team1 === t1 && x.team2 === t2)
+    if (exists) continue
+    var stage = ''
+    if (m.type === 'group') stage = 'Group ' + m.group
+    else if (m.type === 'r32') stage = 'R32'
+    else if (m.type === 'r16') stage = 'R16'
+    else if (m.type === 'qf') stage = 'QF'
+    else if (m.type === 'sf') stage = 'SF'
+    else if (m.type === 'final') stage = 'Final'
+    else if (m.type === 'third') stage = '3rd Place'
+    else stage = m.type || ''
+    data.schedule.push({
+      team1: t1,
+      team2: t2,
+      stage: stage,
+      date: (m.local_date || '').split(' ')[0].replace(/^(\d{2})\/(\d{2})\/(\d{4})$/, '$3-$1-$2') || '',
+      time: (m.local_date || '').split(' ')[1] || '',
+    })
+  }
+  data.schedule.sort((a, b) => (a.date || '').localeCompare(b.date || '') || (a.time || '').localeCompare(b.time || ''))
+
   data.matches.sort((a, b) => (a.date || '').localeCompare(b.date || ''))
   syncEliminatedOrder(data)
+
+  data.lastUpdated = new Date().toISOString()
 
   fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2) + '\n')
 
@@ -168,7 +201,7 @@ async function main() {
   }
 
   embedInHtml(data)
-  console.log(`\nDone. ${added} match(es) added. Total: ${data.matches.length}`)
+  console.log(`\nDone. ${added} match(es) added. Total: ${data.matches.length}, schedule: ${data.schedule.length}`)
 }
 
 main().catch(e => { console.error(e); process.exit(1) })
