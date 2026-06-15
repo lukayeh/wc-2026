@@ -18,6 +18,15 @@ node update-results.js
 
 Pulls finished matches from [worldcup26.ir](https://worldcup26.ir) (free open-source API). Adds any new match involving a sweepstakes team. Auto-updates both `data.json` and the inline data in `index.html`.
 
+## Data Sources
+
+| Source | Data |
+|--------|------|
+| [`worldcup26.ir/get/games`](https://worldcup26.ir/get/games) | Match results (goals, stage, date) |
+| [`site.api.espn.com/v2/sports/soccer/fifa.world`](https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard) | Yellow cards, red cards per match (free, no auth) |
+
+Both are free public APIs — no API key required.
+
 ## Elimination
 
 **Group stage** — manual:

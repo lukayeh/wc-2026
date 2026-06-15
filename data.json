@@ -124,7 +124,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-15T07:44:20.901Z",
+  "lastUpdated": "2026-06-15T08:26:12.481Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -132,7 +132,11 @@
       "goals1": 2,
       "goals2": 0,
       "stage": "Group",
-      "date": "2026-06-11"
+      "date": "2026-06-11",
+      "yellow1": 1,
+      "red1": 1,
+      "yellow2": 2,
+      "red2": 2
     },
     {
       "team1": "South Korea",
@@ -140,7 +144,11 @@
       "goals1": 2,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-11"
+      "date": "2026-06-11",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
     },
     {
       "team1": "Canada",
@@ -148,7 +156,11 @@
       "goals1": 1,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-12"
+      "date": "2026-06-12",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 3,
+      "red2": 0
     },
     {
       "team1": "USA",
@@ -156,7 +168,11 @@
       "goals1": 4,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-12"
+      "date": "2026-06-12",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 5,
+      "red2": 0
     },
     {
       "team1": "Brazil",
@@ -164,7 +180,11 @@
       "goals1": 1,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-13"
+      "date": "2026-06-13",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
     },
     {
       "team1": "Qatar",
@@ -172,7 +192,11 @@
       "goals1": 1,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-13"
+      "date": "2026-06-13",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     },
     {
       "team1": "Haiti",
@@ -180,7 +204,11 @@
       "goals1": 0,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-13"
+      "date": "2026-06-13",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 3,
+      "red2": 0
     },
     {
       "team1": "Australia",
@@ -188,7 +216,11 @@
       "goals1": 2,
       "goals2": 0,
       "stage": "Group",
-      "date": "2026-06-13"
+      "date": "2026-06-13",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     },
     {
       "team1": "Germany",
@@ -196,7 +228,11 @@
       "goals1": 7,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-14"
+      "date": "2026-06-14",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
     },
     {
       "team1": "Côte d'Ivoire",
@@ -204,7 +240,11 @@
       "goals1": 1,
       "goals2": 0,
       "stage": "Group",
-      "date": "2026-06-14"
+      "date": "2026-06-14",
+      "yellow1": 3,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     },
     {
       "team1": "Sweden",
@@ -212,7 +252,11 @@
       "goals1": 5,
       "goals2": 1,
       "stage": "Group",
-      "date": "2026-06-14"
+      "date": "2026-06-14",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     },
     {
       "team1": "Netherlands",
@@ -220,7 +264,11 @@
       "goals1": 2,
       "goals2": 2,
       "stage": "Group",
-      "date": "2026-06-14"
+      "date": "2026-06-14",
+      "yellow1": 3,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
     }
   ],
   "schedule": [

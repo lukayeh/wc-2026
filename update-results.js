@@ -11,6 +11,26 @@ const DATA_FILE = path.join(__dirname, 'data.json')
 const HTML_FILE = path.join(__dirname, 'index.html')
 const API = 'https://worldcup26.ir/get/games'
 
+const ESPN_BASE = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world'
+
+const TO_ESPN = {
+  'Bosnia & Herzegovina': 'Bosnia-Herzegovina',
+  'DR Congo': 'Congo DR',
+  "Côte d'Ivoire": 'Ivory Coast',
+  'USA': 'United States',
+}
+
+const FROM_ESPN = {}
+for (const k in TO_ESPN) FROM_ESPN[TO_ESPN[k]] = k
+
+function espnName(name) {
+  return TO_ESPN[name] || name
+}
+
+function fromEspnName(name) {
+  return FROM_ESPN[name] || name
+}
+
 const NAME_MAP = {
   'Cape Verde': 'Cabo Verde',
   'Turkey': 'Türkiye',
@@ -60,6 +80,99 @@ function embedInHtml(data) {
   const after = html.slice(end)
   html = before + json + after
   fs.writeFileSync(HTML_FILE, html)
+}
+
+const cardCache = {}
+
+function pad2(n) { return n < 10 ? '0' + n : '' + n }
+
+function datePlus(dateStr, days) {
+  const d = new Date(dateStr + 'T12:00:00Z')
+  d.setUTCDate(d.getUTCDate() + days)
+  return d.getUTCFullYear() + pad2(d.getUTCMonth() + 1) + pad2(d.getUTCDate())
+}
+
+async function fetchEvents(dateKey) {
+  if (cardCache[dateKey] !== undefined) return cardCache[dateKey]
+  const url = `${ESPN_BASE}/scoreboard?dates=${dateKey}`
+  try {
+    const res = await fetch(url)
+    if (!res.ok) { cardCache[dateKey] = null; return null }
+    const body = await res.json()
+    cardCache[dateKey] = body.events || []
+    return cardCache[dateKey]
+  } catch (e) {
+    cardCache[dateKey] = null
+    return null
+  }
+}
+
+async function getMatchCards(match) {
+  if (match.yellow1 !== undefined) return
+  
+  const dateKeys = [match.date.replace(/-/g, ''), datePlus(match.date, 1)]
+  
+  for (const dateKey of dateKeys) {
+    const events = await fetchEvents(dateKey)
+    if (!events || !events.length) continue
+    
+    for (const ev of events) {
+      const comp = ev.competitions?.[0]
+      if (!comp || !comp.competitors || comp.competitors.length < 2) continue
+      
+      const c1 = comp.competitors[0]
+      const c2 = comp.competitors[1]
+      const n1 = c1.team.displayName
+      const n2 = c2.team.displayName
+      const mn1 = fromEspnName(n1) || n1
+      const mn2 = fromEspnName(n2) || n2
+      
+      const matchPair = (mn1 === match.team1 && mn2 === match.team2) ||
+                        (mn1 === match.team2 && mn2 === match.team1)
+      if (!matchPair) continue
+      
+      const summaryUrl = `${ESPN_BASE}/summary?event=${ev.id}`
+      let summary
+      try {
+        const sr = await fetch(summaryUrl)
+        if (!sr.ok) continue
+        summary = await sr.json()
+      } catch (e) {
+        continue
+      }
+      
+      const box = summary.boxscore
+      if (!box || !box.teams) continue
+      
+      const stats = {}
+      for (const t of box.teams) {
+        const tid = t.team?.id
+        if (!tid) continue
+        const y = t.statistics?.find(s => s.name === 'yellowCards')?.displayValue || '0'
+        const r = t.statistics?.find(s => s.name === 'redCards')?.displayValue || '0'
+        stats[tid] = { yellow: parseInt(y) || 0, red: parseInt(r) || 0 }
+      }
+      
+      const tid1 = c1.team.id
+      const tid2 = c2.team.id
+      
+      if (stats[tid1] !== undefined && stats[tid2] !== undefined) {
+        if (mn1 === match.team1) {
+          match.yellow1 = stats[tid1].yellow
+          match.red1 = stats[tid1].red
+          match.yellow2 = stats[tid2].yellow
+          match.red2 = stats[tid2].red
+        } else {
+          match.yellow1 = stats[tid2].yellow
+          match.red1 = stats[tid2].red
+          match.yellow2 = stats[tid1].yellow
+          match.red2 = stats[tid1].red
+        }
+        console.log(`  cards: ${match.team1} Y${match.yellow1} R${match.red1}, ${match.team2} Y${match.yellow2} R${match.red2}`)
+        return
+      }
+    }
+  }
 }
 
 async function main() {
@@ -190,6 +303,13 @@ async function main() {
   data.schedule.sort((a, b) => (a.date || '').localeCompare(b.date || '') || (a.time || '').localeCompare(b.time || ''))
 
   data.matches.sort((a, b) => (a.date || '').localeCompare(b.date || ''))
+
+  // --- fetch card data from ESPN for matches that lack it ---
+  console.log(`\nFetching card data for ${data.matches.filter(m => m.yellow1 === undefined).length} match(es)...`)
+  for (const m of data.matches) {
+    await getMatchCards(m)
+  }
+
   syncEliminatedOrder(data)
 
   data.lastUpdated = new Date().toISOString()
