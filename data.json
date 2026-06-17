@@ -124,7 +124,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-17T02:47:11.284Z",
+  "lastUpdated": "2026-06-17T08:54:19.107Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -319,6 +319,42 @@
       "team2": "Senegal",
       "goals1": 3,
       "goals2": 1,
+      "stage": "Group",
+      "date": "2026-06-16",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
+    },
+    {
+      "team1": "Iraq",
+      "team2": "Norway",
+      "goals1": 1,
+      "goals2": 4,
+      "stage": "Group",
+      "date": "2026-06-16",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
+    },
+    {
+      "team1": "Austria",
+      "team2": "Jordan",
+      "goals1": 3,
+      "goals2": 1,
+      "stage": "Group",
+      "date": "2026-06-16",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Algeria",
+      "goals1": 3,
+      "goals2": 0,
       "stage": "Group",
       "date": "2026-06-16",
       "yellow1": 0,
