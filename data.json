@@ -124,7 +124,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-18T21:58:14.078Z",
+  "lastUpdated": "2026-06-19T02:59:58.139Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -433,6 +433,30 @@
       "red1": 0,
       "yellow2": 2,
       "red2": 1
+    },
+    {
+      "team1": "Mexico",
+      "team2": "South Korea",
+      "goals1": 1,
+      "goals2": 0,
+      "stage": "Group",
+      "date": "2026-06-18",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 2,
+      "red2": 0
+    },
+    {
+      "team1": "Canada",
+      "team2": "Qatar",
+      "goals1": 6,
+      "goals2": 0,
+      "stage": "Group",
+      "date": "2026-06-18",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 2
     }
   ],
   "schedule": [
