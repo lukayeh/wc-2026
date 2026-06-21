@@ -63,11 +63,6 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 .match-list .vs{color:#5a7aaa;font-size:.75rem}
 .match-list .match-stage{color:#6a8aaa;font-size:.7rem;text-transform:uppercase}
 .match-list .match-date{color:#5a7aaa;font-size:.7rem;margin-left:auto}
-.rec-dots{display:inline-flex;align-items:center;gap:2px;margin-left:3px;flex-shrink:0}
-.rec-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
-.rec-w-dot{background:#4ade80}
-.rec-d-dot{background:#facc15}
-.rec-l-dot{background:#f87171}
 .cards-badge{display:inline-flex;align-items:center;gap:2px;margin-left:3px;font-size:.68rem;color:#c0d0c0;flex-shrink:0}
 .card-dot{display:inline-block;width:7px;height:9px;border-radius:1.5px;margin-right:1px;flex-shrink:0}
 .card-y{background:#eab308}
@@ -262,15 +257,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":[],"teams":["New Zealand"
       var flagSrc = d.flagCodes[t] ? 'https://flagcdn.com/20x15/' + d.flagCodes[t] + '.png' : ''
       var elim = p.eliminated && p.eliminated.indexOf(t) !== -1
       var rec = teamRecord[t]
-      var recStr = ''
-      if (rec && (rec.w + rec.d + rec.l) > 0) {
-        var dots = ''
-        for (var x = 0; x < rec.w; x++) dots += '<span class="rec-dot rec-w-dot"></span>'
-        for (var x = 0; x < rec.d; x++) dots += '<span class="rec-dot rec-d-dot"></span>'
-        for (var x = 0; x < rec.l; x++) dots += '<span class="rec-dot rec-l-dot"></span>'
-        recStr = '<span class="rec-dots">' + dots + '</span>'
-      }
-      var cardStr = recStr
+      var cardStr = ''
       if (rec && (rec.yc > 0 || rec.rc > 0)) {
         var yc = rec.yc ? '<span class="card-dot card-y"></span>' + rec.yc : ''
         var rc = rec.rc ? '<span class="card-dot card-r"></span>' + rec.rc : ''
