@@ -124,7 +124,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-25T07:34:38.945Z",
+  "lastUpdated": "2026-06-25T10:34:42.420Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1187,6 +1187,13 @@
       "stage": "Group J",
       "date": "2026-06-27",
       "time": "21:00"
+    },
+    {
+      "team1": "South Africa",
+      "team2": "Canada",
+      "stage": "R32",
+      "date": "2026-06-28",
+      "time": "12:00"
     }
   ]
 }
