@@ -124,7 +124,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-27T02:14:37.327Z",
+  "lastUpdated": "2026-06-27T06:46:18.696Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -881,6 +881,30 @@
       "red1": 1,
       "yellow2": 1,
       "red2": 0
+    },
+    {
+      "team1": "Egypt",
+      "team2": "Iran",
+      "goals1": 1,
+      "goals2": 1,
+      "stage": "Group",
+      "date": "2026-06-26",
+      "yellow1": 3,
+      "red1": 0,
+      "yellow2": 4,
+      "red2": 0
+    },
+    {
+      "team1": "New Zealand",
+      "team2": "Belgium",
+      "goals1": 1,
+      "goals2": 5,
+      "stage": "Group",
+      "date": "2026-06-26",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1319,6 +1343,13 @@
       "time": "12:00"
     },
     {
+      "team1": "Germany",
+      "team2": "Paraguay",
+      "stage": "R32",
+      "date": "2026-06-29",
+      "time": "16:30"
+    },
+    {
       "team1": "Netherlands",
       "team2": "Morocco",
       "stage": "R32",
@@ -1338,6 +1369,20 @@
       "stage": "R32",
       "date": "2026-07-01",
       "time": "17:00"
+    },
+    {
+      "team1": "Australia",
+      "team2": "Egypt",
+      "stage": "R32",
+      "date": "2026-07-03",
+      "time": "13:00"
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Cabo Verde",
+      "stage": "R32",
+      "date": "2026-07-03",
+      "time": "18:00"
     }
   ]
 }
