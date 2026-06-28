@@ -124,7 +124,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-28T02:36:20.648Z",
+  "lastUpdated": "2026-06-28T07:43:49.655Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -953,6 +953,30 @@
       "red1": 0,
       "yellow2": 1,
       "red2": 0
+    },
+    {
+      "team1": "Jordan",
+      "team2": "Argentina",
+      "goals1": 1,
+      "goals2": 3,
+      "stage": "Group",
+      "date": "2026-06-27",
+      "yellow1": 3,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
+    },
+    {
+      "team1": "Algeria",
+      "team2": "Austria",
+      "goals1": 3,
+      "goals2": 3,
+      "stage": "Group",
+      "date": "2026-06-27",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1412,11 +1436,60 @@
       "time": "12:00"
     },
     {
+      "team1": "France",
+      "team2": "Sweden",
+      "stage": "R32",
+      "date": "2026-06-30",
+      "time": "17:00"
+    },
+    {
+      "team1": "Mexico",
+      "team2": "Ecuador",
+      "stage": "R32",
+      "date": "2026-06-30",
+      "time": "19:00"
+    },
+    {
+      "team1": "England",
+      "team2": "DR Congo",
+      "stage": "R32",
+      "date": "2026-07-01",
+      "time": "12:00"
+    },
+    {
+      "team1": "Belgium",
+      "team2": "Senegal",
+      "stage": "R32",
+      "date": "2026-07-01",
+      "time": "13:00"
+    },
+    {
       "team1": "USA",
       "team2": "Bosnia & Herzegovina",
       "stage": "R32",
       "date": "2026-07-01",
       "time": "17:00"
+    },
+    {
+      "team1": "Spain",
+      "team2": "Austria",
+      "stage": "R32",
+      "date": "2026-07-02",
+      "time": "12:00"
+    },
+    {
+      "team1": "Portugal",
+      "team2": "Croatia",
+      "stage": "R32",
+      "date": "2026-07-02",
+      "time": "19:00"
+    },
+    {
+      "team1": "Switzerland",
+      "team2": "Algeria",
+      "stage": "R32",
+      "date": "2026-07-02",
+      "time": "20:00"
     },
     {
       "team1": "Australia",
@@ -1431,6 +1504,13 @@
       "stage": "R32",
       "date": "2026-07-03",
       "time": "18:00"
+    },
+    {
+      "team1": "Colombia",
+      "team2": "Ghana",
+      "stage": "R32",
+      "date": "2026-07-03",
+      "time": "20:30"
     }
   ]
 }
