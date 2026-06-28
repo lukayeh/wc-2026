@@ -234,7 +234,7 @@ const DATA = {"players":[{"name":"Nathan","eliminated":["New Zealand","Qatar","S
       tableHtml += '<td class="pld">' + p.yc + '</td>'
       tableHtml += '<td class="pld">' + p.rc + '</td>'
       tableHtml += '<td class="pts">' + fmt(p.pts) + '</td>'
-      var alive = p.teams.length - (p.eliminated ? p.eliminated.length : 0)
+      var alive = p.teams.length - (d.players[idx].eliminated ? d.players[idx].eliminated.length : 0)
       tableHtml += '<td style="color:' + (alive < 6 ? '#f87171' : alive < 10 ? '#facc15' : '#3b82f6') + '">' + alive + '/' + p.teams.length + '</td>'
       tableHtml += '</tr>'
     }
