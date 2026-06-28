@@ -2,7 +2,12 @@
   "players": [
     {
       "name": "Nathan",
-      "eliminated": ["New Zealand","Qatar","Saudi Arabia","Scotland"],
+      "eliminated": [
+        "New Zealand",
+        "Qatar",
+        "Saudi Arabia",
+        "Scotland"
+      ],
       "teams": [
         "New Zealand",
         "Qatar",
@@ -20,7 +25,13 @@
     },
     {
       "name": "Jess",
-      "eliminated": ["Haiti","Iraq","Tunisia","Türkiye","Uruguay"],
+      "eliminated": [
+        "Haiti",
+        "Iraq",
+        "Tunisia",
+        "Türkiye",
+        "Uruguay"
+      ],
       "teams": [
         "Haiti",
         "Cabo Verde",
@@ -38,7 +49,12 @@
     },
     {
       "name": "Jos",
-      "eliminated": ["Curaçao","Czechia","Iran","Uzbekistan"],
+      "eliminated": [
+        "Curaçao",
+        "Czechia",
+        "Iran",
+        "Uzbekistan"
+      ],
       "teams": [
         "Algeria",
         "Uzbekistan",
@@ -56,7 +72,11 @@
     },
     {
       "name": "Luka",
-      "eliminated": ["Jordan","Panama","South Korea"],
+      "eliminated": [
+        "Jordan",
+        "Panama",
+        "South Korea"
+      ],
       "teams": [
         "Jordan",
         "Panama",
@@ -124,7 +144,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-28T13:18:01.331Z",
+  "lastUpdated": "2026-06-28T16:58:56.956Z",
   "matches": [
     {
       "team1": "Mexico",
