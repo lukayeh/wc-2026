@@ -2,7 +2,7 @@
   "players": [
     {
       "name": "Nathan",
-      "eliminated": [],
+      "eliminated": ["New Zealand","Qatar","Saudi Arabia","Scotland"],
       "teams": [
         "New Zealand",
         "Qatar",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Jess",
-      "eliminated": [],
+      "eliminated": ["Haiti","Iraq","Tunisia","Türkiye","Uruguay"],
       "teams": [
         "Haiti",
         "Cabo Verde",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Jos",
-      "eliminated": [],
+      "eliminated": ["Curaçao","Czechia","Iran","Uzbekistan"],
       "teams": [
         "Algeria",
         "Uzbekistan",
@@ -56,7 +56,7 @@
     },
     {
       "name": "Luka",
-      "eliminated": [],
+      "eliminated": ["Jordan","Panama","South Korea"],
       "teams": [
         "Jordan",
         "Panama",
