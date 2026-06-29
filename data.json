@@ -76,7 +76,8 @@
         "Jordan",
         "Panama",
         "South Korea",
-        "South Africa"
+        "South Africa",
+        "Japan"
       ],
       "teams": [
         "Jordan",
@@ -145,7 +146,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-29T18:03:43.541Z",
+  "lastUpdated": "2026-06-29T21:17:15.249Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1009,6 +1010,18 @@
       "yellow1": 0,
       "red1": 0,
       "yellow2": 2,
+      "red2": 0
+    },
+    {
+      "team1": "Brazil",
+      "team2": "Japan",
+      "goals1": 2,
+      "goals2": 1,
+      "stage": "r32",
+      "date": "2026-06-29",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 3,
       "red2": 0
     }
   ],
