@@ -146,7 +146,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-30T02:30:39.565Z",
+  "lastUpdated": "2026-06-30T07:42:40.802Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1035,6 +1035,18 @@
       "red1": 0,
       "yellow2": 2,
       "red2": 0
+    },
+    {
+      "team1": "Netherlands",
+      "team2": "Morocco",
+      "goals1": 1,
+      "goals2": 1,
+      "stage": "r32",
+      "date": "2026-06-29",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1569,6 +1581,13 @@
       "stage": "R32",
       "date": "2026-07-03",
       "time": "20:30"
+    },
+    {
+      "team1": "Canada",
+      "team2": "Morocco",
+      "stage": "R16",
+      "date": "2026-07-04",
+      "time": "12:00"
     }
   ]
 }
