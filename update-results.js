@@ -259,9 +259,14 @@ async function main() {
     console.log(`  + ${t1} ${g1}-${g2} ${t2} (${msg})`)
 
     // knockout elimination: loser is eliminated
-    if (m.type !== 'group' && g1 !== g2) {
-      const loser = g1 < g2 ? t1 : t2
-      if (teamSet.has(loser)) {
+    if (m.type !== 'group') {
+      var loser = null
+      if (g1 !== g2) {
+        loser = g1 < g2 ? t1 : t2
+      } else if (m.home_penalty_score != null && m.away_penalty_score != null) {
+        loser = Number(m.home_penalty_score) < Number(m.away_penalty_score) ? t1 : t2
+      }
+      if (loser && teamSet.has(loser)) {
         const player = getPlayerByTeam(data, loser)
         if (player && !player.eliminated.includes(loser)) {
           player.eliminated.push(loser)
