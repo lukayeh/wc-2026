@@ -31,7 +31,8 @@
         "Iraq",
         "Tunisia",
         "Türkiye",
-        "Uruguay"
+        "Uruguay",
+        "Ecuador"
       ],
       "teams": [
         "Haiti",
@@ -150,7 +151,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-01T02:37:15.061Z",
+  "lastUpdated": "2026-07-01T08:03:55.467Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1075,6 +1076,18 @@
       "red1": 0,
       "yellow2": 0,
       "red2": 0
+    },
+    {
+      "team1": "Mexico",
+      "team2": "Ecuador",
+      "goals1": 2,
+      "goals2": 0,
+      "stage": "r32",
+      "date": "2026-06-30",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 3,
+      "red2": 1
     }
   ],
   "schedule": [
