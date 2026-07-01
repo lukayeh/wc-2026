@@ -80,7 +80,8 @@
         "South Korea",
         "South Africa",
         "Japan",
-        "Côte d'Ivoire"
+        "Côte d'Ivoire",
+        "Sweden"
       ],
       "teams": [
         "Jordan",
@@ -149,7 +150,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-06-30T21:22:26.828Z",
+  "lastUpdated": "2026-07-01T02:37:15.061Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1062,6 +1063,18 @@
       "red1": 0,
       "yellow2": 1,
       "red2": 0
+    },
+    {
+      "team1": "France",
+      "team2": "Sweden",
+      "goals1": 3,
+      "goals2": 0,
+      "stage": "r32",
+      "date": "2026-06-30",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 0,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1603,6 +1616,13 @@
       "stage": "R16",
       "date": "2026-07-04",
       "time": "12:00"
+    },
+    {
+      "team1": "Paraguay",
+      "team2": "France",
+      "stage": "R16",
+      "date": "2026-07-04",
+      "time": "17:00"
     },
     {
       "team1": "Brazil",
