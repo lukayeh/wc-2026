@@ -57,7 +57,9 @@
         "Czechia",
         "Iran",
         "Uzbekistan",
-        "Netherlands"
+        "Netherlands",
+        "Bosnia & Herzegovina",
+        "Senegal"
       ],
       "teams": [
         "Algeria",
@@ -152,7 +154,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-01T21:18:50.843Z",
+  "lastUpdated": "2026-07-02T02:26:43.713Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1101,6 +1103,30 @@
       "red1": 0,
       "yellow2": 1,
       "red2": 0
+    },
+    {
+      "team1": "USA",
+      "team2": "Bosnia & Herzegovina",
+      "goals1": 2,
+      "goals2": 0,
+      "stage": "r32",
+      "date": "2026-07-01",
+      "yellow1": 0,
+      "red1": 1,
+      "yellow2": 1,
+      "red2": 0
+    },
+    {
+      "team1": "Belgium",
+      "team2": "Senegal",
+      "goals1": 3,
+      "goals2": 2,
+      "stage": "r32",
+      "date": "2026-07-01",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1663,6 +1689,13 @@
       "stage": "R16",
       "date": "2026-07-05",
       "time": "18:00"
+    },
+    {
+      "team1": "USA",
+      "team2": "Belgium",
+      "stage": "R16",
+      "date": "2026-07-06",
+      "time": "17:00"
     }
   ]
 }
