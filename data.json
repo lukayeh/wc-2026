@@ -60,7 +60,8 @@
         "Uzbekistan",
         "Netherlands",
         "Bosnia & Herzegovina",
-        "Senegal"
+        "Senegal",
+        "Algeria"
       ],
       "teams": [
         "Algeria",
@@ -156,7 +157,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-03T02:01:40.671Z",
+  "lastUpdated": "2026-07-03T06:53:58.265Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1152,6 +1153,18 @@
       "yellow1": 0,
       "red1": 0,
       "yellow2": 1,
+      "red2": 0
+    },
+    {
+      "team1": "Switzerland",
+      "team2": "Algeria",
+      "goals1": 2,
+      "goals2": 0,
+      "stage": "r32",
+      "date": "2026-07-02",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 2,
       "red2": 0
     }
   ],
