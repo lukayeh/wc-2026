@@ -8,7 +8,8 @@
         "Saudi Arabia",
         "Scotland",
         "Germany",
-        "DR Congo"
+        "DR Congo",
+        "Canada"
       ],
       "teams": [
         "New Zealand",
@@ -160,7 +161,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-04T16:53:49.496Z",
+  "lastUpdated": "2026-07-04T20:43:28.193Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1200,6 +1201,18 @@
       "yellow1": 2,
       "red1": 0,
       "yellow2": 3,
+      "red2": 0
+    },
+    {
+      "team1": "Canada",
+      "team2": "Morocco",
+      "goals1": 0,
+      "goals2": 3,
+      "stage": "r16",
+      "date": "2026-07-04",
+      "yellow1": 4,
+      "red1": 0,
+      "yellow2": 4,
       "red2": 0
     }
   ],
