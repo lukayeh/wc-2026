@@ -90,7 +90,8 @@
         "Japan",
         "Côte d'Ivoire",
         "Sweden",
-        "Croatia"
+        "Croatia",
+        "Ghana"
       ],
       "teams": [
         "Jordan",
@@ -159,7 +160,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-04T01:59:45.797Z",
+  "lastUpdated": "2026-07-04T06:39:53.415Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1188,6 +1189,18 @@
       "red1": 0,
       "yellow2": 2,
       "red2": 0
+    },
+    {
+      "team1": "Colombia",
+      "team2": "Ghana",
+      "goals1": 1,
+      "goals2": 0,
+      "stage": "r32",
+      "date": "2026-07-03",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 3,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1771,6 +1784,13 @@
       "stage": "R16",
       "date": "2026-07-07",
       "time": "12:00"
+    },
+    {
+      "team1": "Switzerland",
+      "team2": "Colombia",
+      "stage": "R16",
+      "date": "2026-07-07",
+      "time": "13:00"
     }
   ]
 }
