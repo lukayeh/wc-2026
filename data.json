@@ -34,7 +34,9 @@
         "Türkiye",
         "Uruguay",
         "Ecuador",
-        "Austria"
+        "Austria",
+        "Cabo Verde",
+        "Australia"
       ],
       "teams": [
         "Haiti",
@@ -157,7 +159,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-03T20:53:17.941Z",
+  "lastUpdated": "2026-07-04T01:59:45.797Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1166,6 +1168,26 @@
       "red1": 0,
       "yellow2": 2,
       "red2": 0
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Cabo Verde",
+      "goals1": 3,
+      "goals2": 2,
+      "stage": "r32",
+      "date": "2026-07-03"
+    },
+    {
+      "team1": "Australia",
+      "team2": "Egypt",
+      "goals1": 1,
+      "goals2": 1,
+      "stage": "r32",
+      "date": "2026-07-03",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 2,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1742,6 +1764,13 @@
       "stage": "R16",
       "date": "2026-07-06",
       "time": "17:00"
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Egypt",
+      "stage": "R16",
+      "date": "2026-07-07",
+      "time": "12:00"
     }
   ]
 }
