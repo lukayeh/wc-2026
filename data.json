@@ -64,7 +64,8 @@
         "Netherlands",
         "Bosnia & Herzegovina",
         "Senegal",
-        "Algeria"
+        "Algeria",
+        "Paraguay"
       ],
       "teams": [
         "Algeria",
@@ -161,7 +162,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-04T20:43:28.193Z",
+  "lastUpdated": "2026-07-05T02:07:44.812Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1214,6 +1215,18 @@
       "red1": 0,
       "yellow2": 4,
       "red2": 0
+    },
+    {
+      "team1": "Paraguay",
+      "team2": "France",
+      "goals1": 0,
+      "goals2": 1,
+      "stage": "r16",
+      "date": "2026-07-04",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 3,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1804,6 +1817,13 @@
       "stage": "R16",
       "date": "2026-07-07",
       "time": "13:00"
+    },
+    {
+      "team1": "France",
+      "team2": "Morocco",
+      "stage": "QF",
+      "date": "2026-07-09",
+      "time": "16:00"
     }
   ]
 }
