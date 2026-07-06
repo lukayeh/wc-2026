@@ -9,7 +9,8 @@
         "Scotland",
         "Germany",
         "DR Congo",
-        "Canada"
+        "Canada",
+        "Mexico"
       ],
       "teams": [
         "New Zealand",
@@ -163,7 +164,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-06T02:12:46.692Z",
+  "lastUpdated": "2026-07-06T07:35:37.743Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1240,6 +1241,18 @@
       "red1": 0,
       "yellow2": 0,
       "red2": 0
+    },
+    {
+      "team1": "Mexico",
+      "team2": "England",
+      "goals1": 2,
+      "goals2": 3,
+      "stage": "r16",
+      "date": "2026-07-05",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 4,
+      "red2": 1
     }
   ],
   "schedule": [
@@ -1837,6 +1850,13 @@
       "stage": "QF",
       "date": "2026-07-09",
       "time": "16:00"
+    },
+    {
+      "team1": "Norway",
+      "team2": "England",
+      "stage": "QF",
+      "date": "2026-07-11",
+      "time": "17:00"
     }
   ]
 }
