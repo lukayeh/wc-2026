@@ -95,7 +95,8 @@
         "Côte d'Ivoire",
         "Sweden",
         "Croatia",
-        "Ghana"
+        "Ghana",
+        "Portugal"
       ],
       "teams": [
         "Jordan",
@@ -164,7 +165,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-06T18:05:02.404Z",
+  "lastUpdated": "2026-07-06T21:21:51.656Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1253,6 +1254,18 @@
       "red1": 0,
       "yellow2": 4,
       "red2": 1
+    },
+    {
+      "team1": "Portugal",
+      "team2": "Spain",
+      "goals1": 0,
+      "goals2": 1,
+      "stage": "r16",
+      "date": "2026-07-06",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 0
     }
   ],
   "schedule": [
