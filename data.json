@@ -37,7 +37,8 @@
         "Ecuador",
         "Austria",
         "Cabo Verde",
-        "Australia"
+        "Australia",
+        "Brazil"
       ],
       "teams": [
         "Haiti",
@@ -162,7 +163,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-05T20:47:45.981Z",
+  "lastUpdated": "2026-07-06T02:12:46.692Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1226,6 +1227,18 @@
       "yellow1": 0,
       "red1": 0,
       "yellow2": 3,
+      "red2": 0
+    },
+    {
+      "team1": "Brazil",
+      "team2": "Norway",
+      "goals1": 1,
+      "goals2": 2,
+      "stage": "r16",
+      "date": "2026-07-05",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 0,
       "red2": 0
     }
   ],
