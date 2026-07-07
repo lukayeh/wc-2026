@@ -97,7 +97,8 @@
         "Sweden",
         "Croatia",
         "Ghana",
-        "Portugal"
+        "Portugal",
+        "Egypt"
       ],
       "teams": [
         "Jordan",
@@ -166,7 +167,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-07T17:52:29.103Z",
+  "lastUpdated": "2026-07-07T21:15:39.100Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1278,6 +1279,18 @@
       "yellow1": 2,
       "red1": 0,
       "yellow2": 0,
+      "red2": 0
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Egypt",
+      "goals1": 3,
+      "goals2": 2,
+      "stage": "r16",
+      "date": "2026-07-07",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 4,
       "red2": 0
     }
   ],
