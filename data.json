@@ -10,7 +10,8 @@
         "Germany",
         "DR Congo",
         "Canada",
-        "Mexico"
+        "Mexico",
+        "Colombia"
       ],
       "teams": [
         "New Zealand",
@@ -167,7 +168,7 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [],
-  "lastUpdated": "2026-07-07T21:15:39.100Z",
+  "lastUpdated": "2026-07-08T01:48:54.322Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1292,6 +1293,18 @@
       "red1": 0,
       "yellow2": 4,
       "red2": 0
+    },
+    {
+      "team1": "Switzerland",
+      "team2": "Colombia",
+      "goals1": 0,
+      "goals2": 0,
+      "stage": "r16",
+      "date": "2026-07-07",
+      "yellow1": 3,
+      "red1": 0,
+      "yellow2": 2,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1903,6 +1916,13 @@
       "stage": "QF",
       "date": "2026-07-11",
       "time": "17:00"
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Switzerland",
+      "stage": "QF",
+      "date": "2026-07-11",
+      "time": "20:00"
     }
   ]
 }
