@@ -40,7 +40,8 @@
         "Austria",
         "Cabo Verde",
         "Australia",
-        "Brazil"
+        "Brazil",
+        "Belgium"
       ],
       "teams": [
         "Haiti",
@@ -171,7 +172,7 @@
   "eliminatedOrder": [
     "Luka"
   ],
-  "lastUpdated": "2026-07-10T20:59:57.081Z",
+  "lastUpdated": "2026-07-11T01:47:38.871Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1320,6 +1321,18 @@
       "red1": 0,
       "yellow2": 1,
       "red2": 0
+    },
+    {
+      "team1": "Spain",
+      "team2": "Belgium",
+      "goals1": 2,
+      "goals2": 1,
+      "stage": "qf",
+      "date": "2026-07-10",
+      "yellow1": 2,
+      "red1": 0,
+      "yellow2": 2,
+      "red2": 0
     }
   ],
   "schedule": [
@@ -1938,6 +1951,13 @@
       "stage": "QF",
       "date": "2026-07-11",
       "time": "20:00"
+    },
+    {
+      "team1": "France",
+      "team2": "Spain",
+      "stage": "SF",
+      "date": "2026-07-14",
+      "time": "14:00"
     }
   ]
 }
