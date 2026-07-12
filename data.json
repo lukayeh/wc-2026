@@ -11,7 +11,8 @@
         "DR Congo",
         "Canada",
         "Mexico",
-        "Colombia"
+        "Colombia",
+        "Norway"
       ],
       "teams": [
         "New Zealand",
@@ -172,7 +173,7 @@
   "eliminatedOrder": [
     "Luka"
   ],
-  "lastUpdated": "2026-07-11T20:38:31.924Z",
+  "lastUpdated": "2026-07-12T01:50:06.768Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1332,6 +1333,18 @@
       "yellow1": 2,
       "red1": 0,
       "yellow2": 2,
+      "red2": 0
+    },
+    {
+      "team1": "Norway",
+      "team2": "England",
+      "goals1": 1,
+      "goals2": 2,
+      "stage": "qf",
+      "date": "2026-07-11",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 0,
       "red2": 0
     }
   ],
