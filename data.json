@@ -42,7 +42,8 @@
         "Cabo Verde",
         "Australia",
         "Brazil",
-        "Belgium"
+        "Belgium",
+        "Switzerland"
       ],
       "teams": [
         "Haiti",
@@ -171,9 +172,10 @@
     "Morocco": "ma"
   },
   "eliminatedOrder": [
-    "Luka"
+    "Luka",
+    "Jess"
   ],
-  "lastUpdated": "2026-07-12T01:50:06.768Z",
+  "lastUpdated": "2026-07-12T06:26:24.647Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1346,6 +1348,18 @@
       "red1": 0,
       "yellow2": 0,
       "red2": 0
+    },
+    {
+      "team1": "Argentina",
+      "team2": "Switzerland",
+      "goals1": 3,
+      "goals2": 1,
+      "stage": "qf",
+      "date": "2026-07-11",
+      "yellow1": 3,
+      "red1": 0,
+      "yellow2": 1,
+      "red2": 1
     }
   ],
   "schedule": [
@@ -1971,6 +1985,13 @@
       "stage": "SF",
       "date": "2026-07-14",
       "time": "14:00"
+    },
+    {
+      "team1": "England",
+      "team2": "Argentina",
+      "stage": "SF",
+      "date": "2026-07-15",
+      "time": "15:00"
     }
   ]
 }
