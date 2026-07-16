@@ -73,7 +73,8 @@
         "Senegal",
         "Algeria",
         "Paraguay",
-        "USA"
+        "USA",
+        "England"
       ],
       "teams": [
         "Algeria",
@@ -176,7 +177,7 @@
     "Luka",
     "Jess"
   ],
-  "lastUpdated": "2026-07-15T20:50:34.232Z",
+  "lastUpdated": "2026-07-16T01:46:20.299Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1372,6 +1373,18 @@
       "yellow1": 2,
       "red1": 0,
       "yellow2": 1,
+      "red2": 0
+    },
+    {
+      "team1": "England",
+      "team2": "Argentina",
+      "goals1": 1,
+      "goals2": 2,
+      "stage": "sf",
+      "date": "2026-07-15",
+      "yellow1": 1,
+      "red1": 0,
+      "yellow2": 3,
       "red2": 0
     }
   ],
