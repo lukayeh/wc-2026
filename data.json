@@ -177,7 +177,7 @@
     "Luka",
     "Jess"
   ],
-  "lastUpdated": "2026-07-17T09:47:34.712Z",
+  "lastUpdated": "2026-07-17T13:06:04.585Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -2017,6 +2017,20 @@
       "team2": "Argentina",
       "stage": "SF",
       "date": "2026-07-15",
+      "time": "15:00"
+    },
+    {
+      "team1": "France",
+      "team2": "England",
+      "stage": "3rd Place",
+      "date": "2026-07-18",
+      "time": "17:00"
+    },
+    {
+      "team1": "Spain",
+      "team2": "Argentina",
+      "stage": "Final",
+      "date": "2026-07-19",
       "time": "15:00"
     }
   ]
