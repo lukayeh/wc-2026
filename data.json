@@ -74,7 +74,8 @@
         "Algeria",
         "Paraguay",
         "USA",
-        "England"
+        "England",
+        "Argentina"
       ],
       "teams": [
         "Algeria",
@@ -175,9 +176,10 @@
   },
   "eliminatedOrder": [
     "Luka",
-    "Jess"
+    "Jess",
+    "Jos"
   ],
-  "lastUpdated": "2026-07-19T20:38:08.583Z",
+  "lastUpdated": "2026-07-20T02:04:48.666Z",
   "matches": [
     {
       "team1": "Mexico",
@@ -1398,6 +1400,18 @@
       "red1": 0,
       "yellow2": 0,
       "red2": 0
+    },
+    {
+      "team1": "Spain",
+      "team2": "Argentina",
+      "goals1": 1,
+      "goals2": 0,
+      "stage": "final",
+      "date": "2026-07-19",
+      "yellow1": 0,
+      "red1": 0,
+      "yellow2": 4,
+      "red2": 1
     }
   ],
   "schedule": [
