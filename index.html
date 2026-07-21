@@ -80,6 +80,21 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 .modal .hl-blue{color:#60a5fa;font-weight:600}
 @media(max-width:640px){.trophies{gap:.5rem}.trophy{min-width:0;width:100%;padding:.5rem .75rem}.trophy-sep.show{display:none}}
 @media(max-width:640px){body{padding:1rem .75rem}.grid{grid-template-columns:1fr;gap:1rem}.teams{grid-template-columns:1fr 1fr}.card{padding:.85rem}.team{font-size:.82rem;gap:.25rem}.table-wrap{margin-bottom:1.5rem}td{font-size:.75rem;padding:.35rem .2rem}th{font-size:.7rem;padding:.4rem .25rem}.flag{width:16px;height:12px}.surv-item{font-size:.7rem;padding:.25rem .5rem;gap:.35rem}.match-list li{font-size:.78rem;gap:.25rem}.match-list .match-stage{font-size:.6rem}}
+.winner-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;z-index:200;padding:1rem}
+.winner-card{background:linear-gradient(145deg,#182244,#1c2848);border:2px solid #ef4444;border-radius:20px;padding:2.5rem 2rem;max-width:420px;width:100%;text-align:center;position:relative;box-shadow:0 0 60px rgba(239,68,68,.2),0 8px 32px rgba(0,0,0,.6);animation:winnerPulse 2s ease-in-out infinite alternate}
+@keyframes winnerPulse{from{box-shadow:0 0 60px rgba(239,68,68,.2),0 8px 32px rgba(0,0,0,.6)}to{box-shadow:0 0 80px rgba(239,68,68,.35),0 8px 32px rgba(0,0,0,.6)}}
+.winner-trophy{font-size:3.5rem;margin-bottom:.5rem;animation:trophyBounce 1s ease-in-out infinite alternate}
+@keyframes trophyBounce{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.winner-title{font-size:1rem;text-transform:uppercase;letter-spacing:.15em;color:#8a9aba;margin-bottom:.25rem}
+.winner-name{font-size:2.2rem;font-weight:800;color:#ef4444;margin-bottom:.25rem;text-shadow:0 0 20px rgba(239,68,68,.3)}
+.winner-sub{font-size:.9rem;color:#c0d0c0;margin-bottom:1.5rem;line-height:1.5}
+.winner-euros{font-size:1.05rem;color:#3b82f6;font-weight:600;letter-spacing:.03em}
+.winner-close{position:absolute;top:.75rem;right:.75rem;cursor:pointer;font-size:1.2rem;color:#6a8aaa;background:none;border:none;padding:0;line-height:1}
+.winner-close:hover{color:#f5f5f5}
+.confetti-container{position:fixed;inset:0;pointer-events:none;z-index:201;overflow:hidden}
+.confetti{position:absolute;width:10px;height:10px;top:-20px;animation:confettiFall linear infinite}
+@keyframes confettiFall{0%{transform:translateY(0) rotate(0deg);opacity:1}85%{opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:0}}
+@media(max-width:640px){.winner-card{padding:1.75rem 1.25rem}.winner-name{font-size:1.7rem}.winner-trophy{font-size:2.8rem}}
 </style>
 </head>
 <body>
@@ -87,8 +102,7 @@ tr td:first-child{text-align:left;padding-left:.75rem;font-weight:600;color:#f5f
 <p class="subtitle">Sweepstakes draw <span class="info-btn" onclick="toggleInfo()" title="Rules">ⓘ</span></p>
 <p class="last-updated" id="lastUpdated"></p>
 
-<div id="trophies" style="display:none"></div>
-<!-- Remove display:none above at the end of the cup to show trophies -->
+<div id="trophies"></div>
 
 <div class="match-bar">
   <button class="match-btn" onclick="showPrevGames()">Previous 3 Games</button>
@@ -359,6 +373,39 @@ function ownerBadge(team){
   var o=getOwner(team)
   if(!o) return ''
   return '<span style="display:inline-flex;width:16px;height:16px;border-radius:50%;background:'+o.color+';color:#fff;align-items:center;justify-content:center;font-size:.58rem;font-weight:700;flex-shrink:0;margin-right:.3rem">'+o.initial+'</span>'
+}
+
+;(function(){
+  var colors=['#ef4444','#facc15','#ef4444','#facc15','#ffffff','#ef4444','#facc15']
+  var shapes=['square','circle']
+  var container=document.createElement('div')
+  container.className='confetti-container'
+  for(var i=0;i<30;i++){
+    var c=document.createElement('div')
+    c.className='confetti'
+    var color=colors[Math.floor(Math.random()*colors.length)]
+    var shape=shapes[Math.floor(Math.random()*shapes.length)]
+    var size=Math.random()*8+6
+    var left=Math.random()*100
+    var duration=Math.random()*3+4
+    var delay=Math.random()*4
+    c.style.cssText='left:'+left+'%;width:'+size+'px;height:'+size+'px;background:'+color+';border-radius:'+(shape==='circle'?'50%':'2px')+';animation-duration:'+duration+'s;animation-delay:'+delay+'s'
+    container.appendChild(c)
+  }
+  document.body.appendChild(container)
+
+  var overlay=document.createElement('div')
+  overlay.className='winner-overlay'
+  overlay.onclick=function(e){if(e.target===this)dismissWinner()}
+  overlay.innerHTML='<div class="winner-card"><button class="winner-close" onclick="dismissWinner()">\u2715</button><div class="winner-trophy">\u{1F3C6}</div><div class="winner-title">Congratulations to our winner</div><div class="winner-name">Nathan</div><div class="winner-sub">Spain won the world cup!</div><div class="winner-euros">See you at the Euros! \u{1F389}</div></div>'
+  document.body.appendChild(overlay)
+})();
+
+function dismissWinner(){
+  var o=document.querySelector('.winner-overlay')
+  if(o)o.remove()
+  var c=document.querySelector('.confetti-container')
+  if(c)c.remove()
 }
 </script>
 </body>
